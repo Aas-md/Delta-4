@@ -1,0 +1,33 @@
+#outer{
+
+    background-color: pink;
+    border: 2px solid black;
+    height: 400px;
+    width: 400px;
+    margin: 50px;
+    font-size: 16px;
+
+}
+
+
+#inner{
+
+    background-color: burlywood;
+    border: 2px solid black;
+    height: 3em;/* 32 * 3 = 96px*/
+    width: 3em;/* 32 * 3 = 96px*/
+    padding: 1em;
+    font-size: 2em;
+    margin: 1em;/*32 should be the margine because the end font size is 32*/
+
+}
+
+section{
+    font-size: 15px;
+}
+
+div{
+    /* font-size: 2em; */
+    font-size: 2rem;
+}
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Em unit</title>
+    <link rel="stylesheet" href="em_unit.css">
+</head>
+<body>
+    
+    <!-- em unit works in respect of the font size of either its parent tag or its own .like if we want to set the childs font than we can simply give it em in respect of its parents font size and if we want to set margine or padding then we can set on its own font size  -->
+
+    <div id="outer">
+        this is outer
+        <div id="inner">
+            this is inner
+        </div>
+    </div>
+
+    <h2>Drawback of em unit (snowfall effect) so we use rem(root em)</h2>
+
+    <section>
+        section
+        <div>div one
+            <div>div two
+                <div>div three</div>
+            </div>
+        </div>
+       
+        
+    </section>
+
+</body>
+</html>

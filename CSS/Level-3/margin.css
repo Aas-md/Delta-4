@@ -1,0 +1,21 @@
+div{
+
+    height: 200px;
+    width: 300px;
+    background-color: yellow;
+    border: 2px solid black;
+    border-radius: 5px;
+
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+button{
+
+    border-radius: 10px;
+    padding-right: 25px;
+    padding-left: 25px;
+    border: 2px solid black;
+
+    margin: 30px;
+}

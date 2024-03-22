@@ -1,0 +1,10 @@
+li{
+    display: inline-block;
+    text-transform: uppercase;
+}
+li::before{
+
+    content: "";
+    display: list-item;
+    position:absolute
+}

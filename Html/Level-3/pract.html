@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pract</title>
+</head>
+<body>
+    
+    <form action="/server">
+     <label for="name" >Name : </label>
+     <input type="text" placeholder="name" id="name" name="name">
+     <br>
+     <label for="password">password : </label>
+     <input type="password" placeholder="password" id="password" name="password">
+     <br>
+     <label for="email">email : </label>
+     <input type="email" placeholder="email" id="email" name="email"> 
+
+     <br>
+
+        <h3>chose your fav programing langs</h3>
+        <label for="java">java</label>
+        <input type="checkbox" value="java" id="java" name="java">
+        <br>
+        <label for="kotlin">kotlin</label>
+        <input type="checkbox" value="kotlin" id="kotlin" name="koltin">
+        <br>
+        <label for="c++">c++</label>
+        <input type="checkbox" value="c++" id="c++" name="c++">
+        <br>
+        <label for="js">js</label>
+        <input type="checkbox" value="js" id="js" name="js">
+        <br>
+
+        <h3>chose your class</h3>
+        <label for="math">math</label>
+        <input type="radio" id="math" value="math" name="subjects">
+        <label for="physics">physics</label> 
+        <input type="radio" id="physics" name="subjects" value="physics">
+        <label for="chemistry">chemistry</label>
+        <input type="radio" id="chemistry" value="chemistry" name="subjects">
+        <br>
+
+        <div>
+            <label for="cities">please select your city :</label>
+            <select id="cities" name="city">
+                <option value="please select">please select</option>
+                <option value="Rampur">Rampur</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Noida">Noida</option>
+
+            </select>
+        </div>
+
+        <div>
+            <lable for="expereince" >please select your expereince</lable>
+            <input type="range" name="expereince" min="0" max="20" step="1" id="expereince">
+        </div>
+    
+     <label for="feedback">Feedback : </label>
+     <textarea placeholder="feeback" id="feedback" name="feedback"></textarea> 
+     <br>
+     <button>submit</button>
+     
+
+
+    </form>
+
+</body>
+</html>

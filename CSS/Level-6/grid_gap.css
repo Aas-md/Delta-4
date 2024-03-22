@@ -1,0 +1,39 @@
+.container{
+
+    width: 600px;
+    height: 300px;
+    background-color: yellow;
+    display: grid;
+    border: 2px solid black;
+
+    grid-template-rows: repeat(5,1fr);
+    grid-template-columns: repeat(3,1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+    
+    
+}
+
+.container div{
+
+    /* width: 100px;
+    height: 40px; */
+    background-color: aquamarine;
+    border: 2px solid black;
+    text-align: center;
+    
+}
+
+/* column gaps in grid */
+
+.col{
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.row{
+
+    grid-row-start: 1;
+    grid-row-end: 3;
+}

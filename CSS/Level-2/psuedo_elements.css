@@ -1,0 +1,17 @@
+/* first-letter */
+h1{
+    color: #b92b27;
+}
+h1::first-letter{
+
+    color: black;
+}
+
+p::first-line{
+    color: green;
+}
+
+p::selection{
+
+    color: purple;
+}

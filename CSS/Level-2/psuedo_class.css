@@ -1,0 +1,44 @@
+/* hover class */
+h1:hover{
+    color: blue;
+    background-color: black;
+}
+p:hover{
+
+    color: red;
+    background-color: ghostwhite;
+}
+
+/* active class */
+
+button:active{
+
+    background-color: aqua;
+    color: red;
+}
+
+/* checked class */
+
+ input[type="radio"]:checked + label{
+
+    color: red;
+    font-weight: bold;
+}
+
+
+input[type="checkbox"]:checked + label{
+
+    color: red;
+    font-weight: bold;
+}
+
+/* nth type class */
+
+.myDiv:nth-of-type(2n+1){
+
+    background-color: yellow;
+}
+
+h1{
+    cursor: pointer;
+}

@@ -1,0 +1,16 @@
+h1{
+    color: red;
+}
+h1::first-letter{
+
+    color: black;
+}
+
+p::first-line{
+
+    color: yellow;
+}
+p::selection{
+
+    color: red;
+}

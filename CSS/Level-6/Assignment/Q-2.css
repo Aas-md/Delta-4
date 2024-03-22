@@ -1,0 +1,55 @@
+.outer{
+
+    /* margin: 0;
+    padding: 0; */
+    height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(12,1fr);
+    grid-template-columns: repeat(12,1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+}
+.outer div{
+    background-color: pink;
+}
+
+
+
+@media (max-width: 720px){
+
+    .header{
+
+        grid-column-start: 1;
+        grid-column-end: span 12;
+    }
+    .sidebar{
+        grid-column-start: 1;
+        grid-column-end: span 3;
+        grid-row-start: 3;
+        grid-row-end: span 9;
+    }
+    
+    .navigation{
+        grid-column-start: 1;
+        grid-column-end: span 12;
+    }
+    .ads{
+    
+        grid-column-start: 1;
+        grid-column-end: span 3;
+    
+    }
+    
+    .main{
+    
+        grid-column-start: 4;
+        grid-column-end: span 9;
+        grid-row-start: 3;
+        grid-row-end: span 9;
+    }
+    
+    .footer{
+        grid-column-start: 4;
+        grid-column-end: span 9;
+    }
+}

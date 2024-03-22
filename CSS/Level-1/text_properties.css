@@ -1,0 +1,31 @@
+h3{
+    text-align: center;
+    border-style: solid;
+    /* font-wight vary from 100 to 900 */
+    font-weight: bolder;
+    
+}
+p{
+     text-align: right;
+     font-weight: 600;
+}
+
+h2{
+    text-decoration: line-through;
+    text-align: center;
+    text-decoration-color: green;
+}
+h4{
+    text-decoration: underline;
+    text-align: center;
+    text-decoration-color: red;
+    text-decoration-style: dashed;
+    
+
+}
+h5{
+    text-decoration: dotted magenta overline;
+    text-align: center;
+ 
+
+}

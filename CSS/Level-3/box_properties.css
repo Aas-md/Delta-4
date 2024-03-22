@@ -1,0 +1,18 @@
+/* height */
+/* width */
+/* border */
+
+div{
+    
+    background-color: pink;
+    height: 200px;
+    width: 200px;
+    /* border-width: 2px;
+    border-style: solid;
+    border-color: black; */
+    border: 2px solid black;
+    /* border-right-style: dotted ;
+    border-right-color: blue; */
+    border-right : dotted blue
+
+}

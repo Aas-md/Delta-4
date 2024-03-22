@@ -1,0 +1,19 @@
+.container{
+
+    width: 600px;
+    height: 300px;
+    background-color: magenta;
+    /* border: 2px solid black; */
+    display: grid;
+    
+}
+
+.item{
+
+    width: 100px;
+    height: 50px;
+    background-color: aquamarine;
+    border: 2px solid black;
+    text-align: center;
+    
+}

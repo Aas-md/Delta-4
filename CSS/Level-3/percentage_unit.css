@@ -1,0 +1,19 @@
+#outer{
+
+    background-color: pink;
+    border: 2px solid black;
+    height: 400px;
+    width: 400px;
+    margin: 100px;
+
+}
+
+#inner{
+
+    background-color: blue;
+    border: 2px solid black;
+    height: 100px;
+    width: 100px;
+    margin: 25%;/*should be 100px*/
+    
+}

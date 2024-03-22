@@ -1,0 +1,13 @@
+div{
+
+    height: 150px;
+    width: 300px;
+    background-color: gray;
+    border: 5px dotted black;
+    /* margin-top: 20px;
+    margin-right: 1em; 1em = 16 px which is by default in your browser
+    margin-bottom: 40px;
+    margin-left: 2em;  */
+    margin: 20px 1em 40px 2em;
+    padding: 1em;
+}

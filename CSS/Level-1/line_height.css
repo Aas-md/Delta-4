@@ -1,0 +1,11 @@
+h1{
+    text-align: center;
+
+}
+p{
+    line-height: 2;
+    /* letter-spacing: 10px; */
+    /* px unit in css 
+    1 inch = 96px(this is a relative unit and we avoid this when we make a responsive website since it is an absolute unit) */
+    font-size: 25px;
+}

@@ -1,0 +1,30 @@
+h1{
+
+    display: inline;/* previously it was a block element*/
+    border: 3px solid black;
+    background-color: magenta;
+   
+}
+span{
+    border: 3px solid black;
+    background-color: yellow;
+    width: 200px;
+    height: 150px;
+    display: block;/*previously it was an inline element*/
+}
+div{
+
+    margin: 20px;
+    background-color: blueviolet;
+    height: 200px;
+    width: 200px;
+    border: 3px solid black;
+    text-align: center;
+    /* now if i want to make it in a single line basuiclly an inline element than it can become an line element and all three divs can come in the same line but you can not apply properties of block element since it will become inline element and inline elements cant work on some box model properties like margine padding width and heiwght .i have a pdf from apna colllege you can see the dufferenece btn an inline element and a block level element*/ 
+
+
+    /* display: inline; */
+
+    /* then we use inline-block
+    display: inline-block;*/
+}

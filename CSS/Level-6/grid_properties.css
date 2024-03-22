@@ -1,0 +1,46 @@
+.container{
+
+    width: 500px;
+    height: 300px;
+    background-color: yellow;
+    display: inline-grid;
+    border: 2px solid black;
+
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(3,1fr);
+    row-gap: 10px;
+   
+    
+    
+}
+
+
+#justify{
+
+    justify-items: center;
+}
+
+#align{
+
+    align-items: center;
+
+}
+
+
+/* for individual cells */
+
+.one{
+
+    justify-self: end;
+    align-self: end;
+}
+
+.container div{
+
+    width: 100px;
+    height: 40px;
+    background-color: aquamarine;
+    border: 2px solid black;
+    text-align: center;
+    
+}

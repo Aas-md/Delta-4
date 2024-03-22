@@ -1,0 +1,107 @@
+.div1{
+
+    width: 300px;
+    height: 100px;
+    background-color: pink;
+    animation-name: fontAnimation;
+    animation-duration: 2s;
+    animation-iteration-count: 5;
+    animation-delay: 0;
+    animation-timing-function: ease-in;
+    animation-direction: alternate;
+
+}
+
+
+@keyframes fontAnimation{
+    
+    from{
+        font-size: 20px;
+    }
+    to{
+        font-size: 40px;
+    }
+}
+
+
+.div2{
+
+    width: 300px;
+    height: 100px;
+    background-color: pink;
+    
+    animation-name: colorAnimate;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
+}
+
+@keyframes colorAnimate{
+
+    from{
+    background-color: blue;
+
+    }to{
+        background-color: aqua;
+    }
+}
+
+.div3{
+
+    width: 300px;
+    height: 100px;
+    background-color: pink;
+
+    animation-name: widthAnimation;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-direction: alternate-reverse;
+    
+}
+
+@keyframes widthAnimation{
+
+    from{
+        width: 20px;
+        background-color: blue;
+    }to{
+        width: 300px;
+        background-color: aqua;
+        border-radius: 50%;
+    }
+}
+
+.div4{
+
+    width: 300px;
+    height: 100px;
+    background-color: pink;
+
+    animation-name: percentageAnimation;
+    animation-duration: 10s;
+    animation-timing-function:ease-in;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+
+
+}
+
+@keyframes percentageAnimation{
+
+    25%{
+       background-color:  #E7F2F8;
+    }50%{
+        background-color:  #74BDCB;
+    }75%{
+       background-color:  #FFA384;
+    }100%{
+        background-color:  #EFE7BC;
+    }
+}
+
+div{
+    margin: 50px;
+}
