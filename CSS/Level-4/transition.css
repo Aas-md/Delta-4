@@ -13,7 +13,7 @@ div{
 
     /* time funtion */
 
-    transition: margin-top 2s ease-in 0.2s;
+    transition: margin-top 2s ease-out 0.2s;
 
 }
 

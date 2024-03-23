@@ -19,7 +19,7 @@ div:nth-of-type(3n){
     margin-top: 15%;
 }
 
-/* transform -> rotate */
+/* transform -> rotate just rotate the object in the clock wise direcionif we give positive value and if we give negative va;lue then it rotate in the anticlock wise direction */
 
 #one{
 
