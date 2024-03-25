@@ -1,0 +1,27 @@
+.outer{
+    width: 800px;
+    height: 50px;
+   
+    background-color: rgb(214, 151, 126);
+    border: 2px solid teal;
+    display: flex;
+    border-radius: 5px;
+    /* justify-content: space-around; */
+    justify-content: start;
+  
+
+}
+
+#div4{
+    flex-basis: 200px;
+}
+
+.outer div{
+
+    width: 80px;
+    height: 50px;
+
+    font-size: 24px;
+
+}
+
