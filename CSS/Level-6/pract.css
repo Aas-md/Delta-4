@@ -1,46 +1,41 @@
-.container{
-
-    width: 500px;
-    height: 300px;
-    background-color: yellow;
-    display: inline-grid;
-    border: 2px solid black;
-
-    grid-template-rows: repeat(3,1fr);
-    grid-template-columns: repeat(3,1fr);
+.outer{
+    width: 800px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(12,1fr);
     row-gap: 10px;
-   
-    
-    
+    column-gap: 10px;
+}
+.outer div{
+    background-color: pink;
 }
 
+.header{
 
-#justify{
-
-    justify-items: center;
+    grid-column: 1 / span 12;
 }
 
-#align{
-
-    align-items: center;
-
+.sidebar{
+    grid-row: 2 / span 10;
+    grid-column: 1 / span 3;
 }
 
-
-/* for individual cells */
-
-.one{
-
-    justify-self: end;
-    align-self: end;
-}
-
-.container div{
-
-    width: 100px;
-    height: 40px;
-    background-color: aquamarine;
-    border: 2px solid black;
-    text-align: center;
+.nav{
+    grid-column: 4 / span 6;
     
 }
+
+.ads{
+    grid-row: 2 / span 10;
+    grid-column: 10 / span 3;
+}
+.main{
+    grid-row: 3 / span 9;
+    grid-column: 4 / span 6;
+}
+
+.footer{
+    grid-column: 1 / span 12;
+}
+
