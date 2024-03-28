@@ -1,6 +1,6 @@
 .outer{
  
-   text-align: center;
+    text-align: center;
 
 }
 
@@ -9,7 +9,7 @@
     width: 500px;
     height: 100px;
     border: 2px solid black;
-    text-align: center;
+    margin: auto;
   
 }
 

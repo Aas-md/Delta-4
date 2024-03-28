@@ -1,0 +1,10 @@
+div{
+
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    background-color: pink;
+}
+p{
+   text-align: center;
+}
