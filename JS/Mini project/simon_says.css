@@ -1,0 +1,55 @@
+h1,h2{
+    text-align: center;
+
+}
+.outer1{
+    display: flex;
+    flex-wrap: wrap; /* Flex items ko wrap karne ke liye */
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    
+    
+}
+
+.outer2{
+    display: flex;
+    flex-wrap: wrap; /* Flex items ko wrap karne ke liye */
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    
+    
+}
+
+.div1{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(189, 94, 110);
+}
+.div2{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(75, 134, 134);
+}
+.div3{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(134, 102, 40);
+}
+
+.div4{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(44, 44, 83);
+}
+
+.outer1 div, .outer2 div{
+
+    border: 3px solid black;
+    border-radius: 20px;
+    margin: 8px;
+}
+
+.flash{
+
+    background-color: green;
+}
