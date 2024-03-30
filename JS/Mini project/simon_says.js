@@ -50,6 +50,7 @@ function checkAns(idx){
         document.querySelector('body').style.backgroundColor = "";
 
         },150);
+        reset();
        
     }
 }
@@ -70,3 +71,9 @@ for(btn of allBtns){
     btn.addEventListener("click",btnPressed);
 }
 
+function reset(){
+    gameSeq = [];
+    userSeq = [];
+    started = false;
+    level =0;
+}
