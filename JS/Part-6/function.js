@@ -142,7 +142,7 @@
 
 // multipleGreet(greet,10);
 
-// multipleGreet(function{console.log("this second function")},5);// giving error
+// multipleGreet(function(){console.log("this second function")},5);// giving error
 
 
 
