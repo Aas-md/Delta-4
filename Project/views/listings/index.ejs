@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wanderlust</title>
-</head>
-<body>
-    
-    <h3>All Listings</h3>
+<% layout("/layouts/boilerplates.ejs") %>
 
-    <form method="GET" action="/listings/new">
-        <button>Create new Listing</button>
-    </form>
+
+  <h3>All Listings</h3>
+
+  <div class="row row-col-lg-3 row-col-md-2 row-col-sm-1">
 
     <% for(listing of listings){ %>
+      <div class="col-3">
+        <div class="card">
+          <a class="listing-link" href="/listings/<%= listing._id%>">
+            <img class="card-img card-img-top" src="<%= listing.image %>" alt="listing_image">
+            <div class="card-img-overlay">
+              <p class="card-text">Random overlay text</p>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                <b>
+                  <%= listing.title %>.
+                </b>
+              </p>
 
-    <ul>
-        <li><a href="/listings/<%= listing._id %>"><%= listing.title %></a></li>
-    </ul>
-
-<% } %>
-
-
-</body>
-</html>
-
+              <p class="card-text">&#8377; <%=listing.price.toLocaleString("en-IN") %>/nigh</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <% } %>
+  </div>
