@@ -21,3 +21,5 @@ async function initDB(){
     console.log("data saved succcessfully");
 }
 
+initDB();
+
