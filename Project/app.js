@@ -10,7 +10,8 @@ const ejsMate = require('ejs-mate');
 const wrapAsync = require("./utils/wrapAsync")
 const ExpressError = require("./utils/ExpressError.js");
 const Joi = require("joi");
-const  schema  = require("./schema.js");
+const  {listingSchema,reviewSchema}  = require("./schema.js");
+const Review = require("./models/review.js");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -41,14 +42,24 @@ app.get('/', (req, res) => {
 
 const validateListing = (req, res, next) => {
      
-    let {error} = schema.listingSchema.validate(req.body);
+    let {error} = listingSchema.validate(req.body);
   
    
     if (error) {
        
-        throw new ExpressError(404, error);
+        throw new ExpressError(400, error);
     }else{
         next();
+    }
+}
+
+const validateReview = (req,res,next)=>{
+    let {error} = reviewSchema.validate(req.body)
+
+    if(error){
+        throw new ExpressError(400,error)
+    }else{
+        next()
     }
 }
 
@@ -85,7 +96,7 @@ app.post('/listings',validateListing, wrapAsync(async (req, res, next) => {
 app.get('/listings/:id', wrapAsync(async (req, res) => {
 
     const { id } = req.params;
-    const listing = await Listing.findById(id);
+    const listing = await Listing.findById(id).populate("reviews");
     res.render("listings/show.ejs", { listing });
 
 
@@ -123,11 +134,30 @@ app.delete('/listings/:id', wrapAsync(async (req, res) => {
 
 }))
 
-// error handler for general cases
+// Reviews Post Route
 
-// app.use((err, req, res, next) => {
-//     res.send("somethinf went wrong");
-// })
+app.post('/listings/:id/reviews',validateReview,wrapAsync(async (req,res)=>{
+ 
+    let id = req.params.id;
+    let listing = await Listing.findById(id);
+    let review = Review(req.body.review);
+    listing.reviews.push(review);
+    await review.save();
+    await listing.save();
+    res.redirect(`/listings/${listing._id}`);
+}))
+
+//  Review delete route
+
+app.delete('/listings/:id/reviews/:reviewId', wrapAsync(async (req,res)=>{
+
+        let {id,reviewId} = req.params;
+        
+        await Listing.findByIdAndUpdate(id,{$pull : {reviews : reviewId}});
+        await Review.findByIdAndDelete(reviewId);
+        res.redirect(`/listings/${id}`);
+}))
+
 
 
 // Catch-all 404 handler
@@ -145,5 +175,26 @@ app.use((err, req, res, next) => {
     // res.status(statusCode).send(message);
     res.render('error.ejs', { message });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// error handler for general cases
+
+// app.use((err, req, res, next) => {
+//     res.send("somethinf went wrong");
+// })
 
 
