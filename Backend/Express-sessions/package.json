@@ -1,5 +1,5 @@
 {
-  "name": "project",
+  "name": "express-sessions",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,14 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "connect-flash": "^0.1.1",
-    "cookie-parser": "^1.4.7",
-    "ejs": "^3.1.10",
-    "ejs-mate": "^4.0.0",
     "express": "^5.1.0",
-    "express-session": "^1.18.2",
-    "joi": "^17.13.3",
-    "method-override": "^3.0.0",
-    "mongoose": "^8.16.3"
+    "express-session": "^1.18.2"
   }
 }

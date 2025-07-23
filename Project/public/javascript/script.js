@@ -19,4 +19,6 @@
     })
 })()
 
+// $(".alert").alert('btn-close')
+
 console.log("this is script js")
