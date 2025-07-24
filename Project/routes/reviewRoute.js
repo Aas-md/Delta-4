@@ -5,31 +5,19 @@ const ExpressError = require("../utils/ExpressError.js");
 const  {reviewSchema}  = require("../schema.js");
 const Listing = require("../models/listing.js");
 const Review = require("../models/review.js")
-
-
-
-
-const validateReview = (req,res,next)=>{
-    let {error} = reviewSchema.validate(req.body)
-
-    if(error){
-        throw new ExpressError(400,error)
-    }else{
-        next()
-    }
-}
-
+const {isLoggedIn, validateReview,isReviewAthor} = require('../midlewares.js');
 
 // Reviews Post Route
 
-router.post('/',validateReview,wrapAsync(async (req,res)=>{
+router.post('/',isLoggedIn, validateReview,wrapAsync(async (req,res)=>{
  
     let id = req.params.id;
     console.log(id,"hello I am review post route");
     let listing = await Listing.findById(id);
     let review = Review(req.body.review);
     listing.reviews.push(review);
-    
+    review.author = req.user._id;
+    console.log(review);
     await review.save();
     await listing.save();
       req.flash("success","Review Added Successfuly");
@@ -38,7 +26,7 @@ router.post('/',validateReview,wrapAsync(async (req,res)=>{
 
 //  Review delete route
 
-router.delete('/:reviewId', wrapAsync(async (req,res)=>{
+router.delete('/:reviewId',isLoggedIn,isReviewAthor, wrapAsync(async (req,res)=>{
 
         let {id,reviewId} = req.params;
         

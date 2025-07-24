@@ -114,7 +114,7 @@ app.use((err, req, res, next) => {
       // Extract first line after the error message from the stack
     const stackLines = err.stack?.split('\n');
     const locationLine = stackLines && stackLines[1] ? stackLines[1].trim() : "Location not found";
-    console.log(message,locationLine);
+    // console.log(message,locationLine);
     res.render('error.ejs', { message });
 });
 
