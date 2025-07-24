@@ -11,6 +11,10 @@ const listings = require('./routes/listingRoute.js')
 const reviews = require('./routes/reviewRoute.js')
 const session = require('express-session')
 const flash = require('connect-flash')
+const passport = require('passport')
+const LocalStrategy = require('passport-local')
+const User = require('./models/user.js')
+const userRoute= require('./routes/userRoute.js')
 
 
 
@@ -20,8 +24,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride("_method"))
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")))
-
-
 
 
 
@@ -62,19 +64,44 @@ const sessionOptions = {
 app.use(session(sessionOptions))
 app.use(flash());
 
+// set passport ->  just after the session because it needs session
+
+
+app.use(passport.initialize())
+app.use(passport.session())
+passport.use(new LocalStrategy(User.authenticate()))
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser());
+
+
 app.use((req,res,next)=>{
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
+    res.locals.currUser = req.user;
     next();
 })
 
+// fakeUser registerd
+app.get('/demouser',async (req,res)=>{
+
+    let fakeUser = new User({
+        email : "aas7071@gmail.com",
+        username : 'aasmohd7071'
+    })
+
+    let registeredUser = await User.register(fakeUser,'abc')
+    res.send(registeredUser)
+})
+
+
 app.use('/listings',listings);
 app.use('/listings/:id/reviews',reviews)
+app.use('/',userRoute)
 
 
 // Catch-all 404 handler
-app.all("/{*any}", (req, res, next) => {
-    next(new ExpressError(404, "page not found"));
+app.all("{*any}", (req, res, next) => {
+    next(new ExpressError(404, "page not found"));///{*any}"
 });
 
 
@@ -82,6 +109,12 @@ app.all("/{*any}", (req, res, next) => {
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = "Something went wrong" } = err;
     // res.status(statusCode).send(message);
+    // console.log(err.message,err.stack)
+
+      // Extract first line after the error message from the stack
+    const stackLines = err.stack?.split('\n');
+    const locationLine = stackLines && stackLines[1] ? stackLines[1].trim() : "Location not found";
+    // console.log(message,locationLine);
     res.render('error.ejs', { message });
 });
 
