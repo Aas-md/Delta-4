@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const port = 8080;
-const mongoose_url = "mongodb://127.0.0.1:27017/wanderlust";
 const path = require("path");
 const methodOverride = require("method-override")
 const ejsMate = require('ejs-mate');
@@ -10,12 +9,13 @@ const ExpressError = require("./utils/ExpressError.js");
 const listings = require('./routes/listingRoute.js')
 const reviews = require('./routes/reviewRoute.js')
 const session = require('express-session')
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash')
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
 const User = require('./models/user.js')
 const userRoute= require('./routes/userRoute.js')
-
+const dbUrl = process.env.ATLASDB_URL;
 
 
 app.set("view engine", "ejs");
@@ -34,7 +34,7 @@ main().then(() => {
 })
 
 async function main() {
-    await mongoose.connect(mongoose_url);
+    await mongoose.connect(dbUrl);
 }
 
 app.listen(port, () => {
@@ -43,14 +43,30 @@ app.listen(port, () => {
 
 //home route
 
-app.get('/', (req, res) => {
-    res.send("app is working fine");
+// app.get('/', (req, res) => {
+//     res.send("app is working fine");
+// })
+
+// store option similar to sesssion opt but for host
+
+const store = MongoStore.create({
+    mongoUrl : dbUrl,
+    crypto : {
+        secret : process.env.SECRET,
+    },
+    touchAfter : 24 * 3600,
 })
+
+store.on("error",()=>{
+    console.log("Error i mongo session store",err)
+})
+
 
 //sessions options
 
 const sessionOptions = {
-    secret : "secretCode",
+    store : store,
+    secret : process.env.SECRET,
     resave : false,
     saveUninitialized : true,
     cookie : {
