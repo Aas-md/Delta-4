@@ -13,14 +13,14 @@ module.exports.renderNewForm = (req, res) => {
 
 }
 
-module.exports.addNewListing =  async (req, res, next) => {
+module.exports.addNewListing = async (req, res, next) => {
 
     // let {title, description,image,price,location,country} = req.body;
     let url = req.file.path;
     let filename = req.file.filename;
     const listing = req.body.listing;
     const newListing = new Listing(listing);
-    newListing.image = {url,filename};
+    newListing.image = { url, filename };
     newListing.owner = req.user._id
     await newListing.save();
     req.flash("success", "New Listing added");
@@ -28,7 +28,7 @@ module.exports.addNewListing =  async (req, res, next) => {
 
 }
 
-module.exports.showListing =  async (req, res) => {
+module.exports.showListing = async (req, res) => {
 
     const { id } = req.params;
     const listing = await Listing.findById(id)
@@ -46,7 +46,7 @@ module.exports.showListing =  async (req, res) => {
     }
 }
 
-module.exports.editListing =  async (req, res) => {
+module.exports.editListing = async (req, res) => {
 
     let { id } = req.params;
     const listing = await Listing.findById(id);
@@ -57,7 +57,13 @@ module.exports.editListing =  async (req, res) => {
 
 module.exports.updateListing = async (req, res) => {
     const { id } = req.params;
-    await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+    let listing = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+    if (typeof req.file !== 'undefined') {
+        let url = req.file.path;
+        let filename = req.file.filename;
+        listing.image = { filename, url }
+        await listing.save()
+    }
     req.flash("success", "Listing Edited Successfuly");
     res.redirect(`/listings/${id}`);
 
