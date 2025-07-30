@@ -1,12 +1,5 @@
 import './App.css'
 import ProductTab from './productTab'
-import MainBox from './MainBox'
-import Card from './card'
-
-
-
-
-
 
 function App() {
 
@@ -14,8 +7,8 @@ function App() {
   return (
     
    <div>
-    <Card/>
- 
+    <h3>BlockBuster deals | Show now</h3>
+    <ProductTab/>
 
    </div>
   )

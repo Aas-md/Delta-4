@@ -1,12 +1,17 @@
-function Product({title,price,owners}){
-   let list = owners.map((owner)=><li>{owner}</li>)
-   let style = {backgroundColor : price >= 20000 ? "pink" : ""}
+import './Product.css'
+import Price from './Price'
+
+function Product({ title, idx }) {
+    let oldPrice = ['12,000', '1,000', '1200', '10,000']
+    let newPrice = ['11,000', '900', '1100', '9,000']
+    let desc = ['desc 1 but not word the same', 'desc 2 but not word the same', 'desc 3 but not word the same','desc 4 but not word the same']
     return (
-        <div style={style}>
-            <h1>price : {price}</h1>
-            <h3>Titke : {title}</h3>
-            <p>owners : {list}</p>
-            {price >= 20000  && <p>"5% Discount eligible"</p>}
+         
+        <div className="Product">
+           
+            <h1>{title}</h1>
+            <p>{desc[idx]}</p>
+            <Price oldPrice={oldPrice[idx]} newPrice={newPrice[idx]} />
         </div>
     )
 

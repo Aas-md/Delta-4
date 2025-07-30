@@ -1,0 +1,15 @@
+.oldStyle{
+    text-decoration: line-through;
+}
+
+.newStyle{
+    font-weight: bold;
+}
+
+.style{
+    background-color: yellow;
+    height: 50px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}

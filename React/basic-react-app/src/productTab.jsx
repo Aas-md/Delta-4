@@ -1,14 +1,15 @@
 import Product from "./product"
 
-function productTab(){
-    let owners = ["Aas","hamza","himanshu","anshuman","joy bhatacharya"]
+function productTab() {
+
+    let style = { display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }
     return (
-        <div>
-            <Product title="Phone" price={12000} owners={owners}/>
-            <Product title="laptop" price={20000} owners={owners}/>
-            <Product title="Charger" price={25000} owners={owners}/>
-         
-         
+        <div style={style}>
+            <Product title="Apple" idx={0} />
+            <Product title="Microsoft" idx={1} />
+            <Product title="Amazon" idx={2} />
+            <Product title="Google" idx={3} />
+
         </div>
     )
 }
