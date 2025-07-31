@@ -1,0 +1,7 @@
+.box{
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+    background-color: azure;
+    margin: 30px auto;
+}

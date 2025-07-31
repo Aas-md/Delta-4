@@ -1,23 +1,40 @@
 import { useState } from "react";
+import uuid from "uuid4";
 
 export default function TodoApp() {
 
 
-    let [arr, setArr] = useState(['sample task','sedond task'])
+    let [arr, setArr] = useState([{ task: "first task", id: uuid() }]);
     let [task, setTask] = useState("")
 
     function addTask() {
-        let copy = [...arr];
-        copy.push(task);
-        setArr(copy);
+
+        setArr((prevTask) => {
+            return [...prevTask, { task: task, id: uuid() }];
+        })
         setTask("")
 
     }
 
-    let updateInputValue = (event)=>{
+    let updateInputValue = (event) => {
         setTask(event.target.value)
-        
+
     }
+
+    function deleteTask(id){
+        let newArr = arr.filter((task)=> task.id != id);
+        setArr(newArr)
+    }
+
+ function upperCaseAll() {
+    setArr((prevArr) => 
+        prevArr.map((task) => ({
+            ...task,
+            task: task.task.toLocaleUpperCase()
+        }))
+    );
+}
+
 
     return (
         <div>
@@ -27,13 +44,20 @@ export default function TodoApp() {
             <br /><br /><br />  <hr />
             <ul>
                 {
-                    arr.map((t) => {
+                    arr.map((t) => (
 
 
-                        return <li>{t}</li>
-                    })
+                         <li key={t.id}>
+                            <span>{t.task}</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button onClick={()=> deleteTask(t.id)}>Delete</button>
+
+                         </li>
+                    ))
                 }
             </ul>
+
+            <button onClick={upperCaseAll}>Upper case All</button>
 
 
         </div>
