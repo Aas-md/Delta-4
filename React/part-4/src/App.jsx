@@ -2,6 +2,7 @@
 import './App.css'
 import SetStateForObj from './Components/SetStateForObj';
 import SetStateForArr from './Components/SetStateForArr';
+import TodoApp from './Todo/TodoApp';
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
  
   return (
     <div>
-      <SetStateForArr/>
+      <TodoApp/>
     </div>
   )
 
