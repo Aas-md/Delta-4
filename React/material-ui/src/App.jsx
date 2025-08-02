@@ -1,14 +1,15 @@
-import SearchBox from "./Compo/SearchBox"
+import WeatherApp from "./Compo/weatherApp"
 
 function App() {
-  
+
+ 
+
   return (
-    <div>
-      <SearchBox/>
-      
+    <div style = {{textAlign : "center"}}>
+    <WeatherApp/>
     </div>
   )
- 
+
 }
 
 export default App
